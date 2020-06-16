@@ -18,7 +18,13 @@
         <form ng-submit="ctrl.createCandle()">
           <fieldset>
             <legend>Fill Out Details</legend>
-            <input ng-model="" type="text">
+            <input ng-model="ctrl.createForm.name" type="text" placeholder="Name">
+            <input ng-model="ctrl.createForm.price" type="number" placeholder="Price">
+            <input ng-model="ctrl.createForm.brand" type="text" placeholder="Brand">
+            <input ng-model="ctrl.createForm.likes" type="number" placeholder="0">
+            <label for="">In stock?</label>
+            <input ng-model="ctrl.createForm.inStock" type="checkbox">
+            <input ng-model="ctrl.createForm.img" type="url" placeholder="URL">
           </fieldset>
         </form>
       </div>
