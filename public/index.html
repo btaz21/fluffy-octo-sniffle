@@ -8,6 +8,20 @@
     <title></title>
   </head>
   <body ng-controller="MyController as ctrl">
-    <h1>Welcome to J & B's Boutique Candle Shop</h1>
+    <div class="container">
+      <h1>Welcome to J & B's Boutique Candle Shop</h1>
+      <div class="candles">
+        <h2></h2>
+        <img src="" alt="">
+      </div>
+      <div class="create">
+        <form ng-submit="ctrl.createCandle()">
+          <fieldset>
+            <legend>Fill Out Details</legend>
+            <input ng-model="" type="text">
+          </fieldset>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
