@@ -32,5 +32,7 @@ app.controller('MyController', ['$http', function ($http) {
     })
   }//getCandles end
 
+  this.getCandles()
+
 
 }])
