@@ -17,9 +17,9 @@ db.on('error', err => console.log(err.message + ' is Mongod not running?'))
 db.on('disconnected', () => console.log('mongo disconnected'))
 
 
-app.get('/', (req, res) => {
-  res.send('hello world')
-})
+const candlesController = require('./controllers/con_candles.js')
+app.use('/candles', candlesController)
+
 
 //listener
 app.listen(3000, () => {
