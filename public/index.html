@@ -14,7 +14,25 @@
         <h2>{{ candle.name }}</h2>
         <img src="" alt="">
         <button ng-click="ctrl.deleteCandle(candle._id)" type="button">Delete Candle</button>
+        <button
+        ng-if="ctrl.indexToShow !== $index"
+        ng-click="ctrl.indexToShow = $index"
+        type="button">Edit Candle</button>
+
+        <form
+        ng-if="$index === ctrl.indexToShow"
+        ng-submit="ctrl.updateCandle(candle)">
+          <input ng-model="ctrl.name" type="text" placeholder="Name">
+          <input ng-model="ctrl.price" type="number" placeholder="Price">
+          <input ng-model="ctrl.brand" type="text" placeholder="Brand">
+          <input ng-model="ctrl.likes" type="number" placeholder="How many likes?">
+          <label for="">In stock?</label>
+          <input ng-model="ctrl.inStock" type="checkbox">
+          <input ng-model="ctrl.img" type="url" placeholder="URL">
+          <input type="submit" value="Create New Candle">
+        </form>
       </div>
+
       <div class="create">
         <form ng-submit="ctrl.createCandle()">
           <fieldset>
