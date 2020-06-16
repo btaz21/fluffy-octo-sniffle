@@ -18,4 +18,19 @@ router.post('/', (req, res) => {
   })
 })
 
+//DELETE
+router.delete('/:id', (req, res) => {
+  Candles.findByIdAndRemove(req.params.id, (error, deletedCandle) => {
+    res.json(deletedCandle)
+  })
+})
+
+
+//EDIT
+router.put('/:id', (req, res) => {
+  Candles.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, editedCandle) => {
+    res.json(editedCandle)
+  })
+})
+
 module.exports = router
