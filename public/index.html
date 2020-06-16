@@ -13,6 +13,7 @@
       <div ng-repeat="candle in ctrl.candles" class="candles">
         <h2>{{ candle.name }}</h2>
         <img src="" alt="">
+        <button ng-click="ctrl.deleteCandle(candle._id)" type="button">Delete Candle</button>
       </div>
       <div class="create">
         <form ng-submit="ctrl.createCandle()">
@@ -28,6 +29,7 @@
             <input type="submit" value="Create Candle">
           </fieldset>
         </form>
+
       </div>
     </div>
   </body>

@@ -13,6 +13,7 @@ app.controller('MyController', ['$http', function ($http) {
     ).then((response) => {
       console.log(response.data);
       this.createForm = {}
+      this.getCandles()
     }, (error) => {
       console.log(error);
     })
@@ -31,6 +32,20 @@ app.controller('MyController', ['$http', function ($http) {
       console.log(error);
     })
   }//getCandles end
+
+
+  this.deleteCandle = (id) => {
+    $http(
+      {
+        method: 'DELETE',
+        url: '/candles/' + id
+      }
+    ).then((response) => {
+      this.getCandles()
+    }, (error) => {
+      console.log(error);
+    })
+  }//deleteCandle end
 
   this.getCandles()
 
