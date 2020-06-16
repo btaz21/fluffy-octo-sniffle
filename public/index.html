@@ -10,8 +10,8 @@
   <body ng-controller="MyController as ctrl">
     <div class="container">
       <h1>Welcome to J & B's Boutique Candle Shop</h1>
-      <div class="candles">
-        <h2></h2>
+      <div ng-repeat="candle in ctrl.candles" class="candles">
+        <h2>{{ candle.name }}</h2>
         <img src="" alt="">
       </div>
       <div class="create">
