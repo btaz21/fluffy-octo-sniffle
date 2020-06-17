@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
 * {
-  /* border: 1px solid gold; */
+  border: 1px solid gold;
 }
 
 body {
@@ -71,16 +71,20 @@ li {
 
 input {
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
+  width: 50%;
+  font-size: 1.3em;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+input[type=checkbox] {
+  zoom: 1.7;
 }
 
 input[type=submit] {
   margin: 20px auto;
 }
 
-label {
-  margin-top: 30px;
-}
 
 fieldset {
   background-image: url(https://i.imgur.com/WUQXIrX.jpg);
