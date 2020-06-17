@@ -5,7 +5,7 @@ const Candles = require('../models/candles.js')
 
 //INDEX
 router.get('/', (req, res) => {
-  Candles.find({}, (error, foundCandle) => {
+  Candles.find({}, null, {sort: {likes: -1}}, (error, foundCandle) => {
     res.json(foundCandle)
   })
 })
@@ -32,5 +32,15 @@ router.put('/:id', (req, res) => {
     res.json(editedCandle)
   })
 })
+
+//EDIT LIKES
+router.put('/likes/:id', (req, res) => {
+  console.log(req.params.id);
+  Candles.findByIdAndUpdate(req.params.id, {$inc: {'likes': + 1}}, {new:true}, (error, foundCandle) => {
+    res.json(foundCandle)
+  })
+})
+
+
 
 module.exports = router

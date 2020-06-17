@@ -2,7 +2,27 @@ const app = angular.module('CandleApp', [])
 
 app.controller('MyController', ['$http', function ($http) {
   this.indexToShow = null
+  this.indexToShowDescription = null
   this.createForm = {}
+  this.showCreate = false
+  this.floatingDescription = ''
+  this.toggleClass = true
+
+  this.toggleCreateForm = function () {
+    this.showCreate = !this.showCreate
+  }
+
+  this.showDescription = function (candle, $index) {
+    this.indexToShowDescription = $index
+    this.floatingDescription = candle.description
+  }
+
+  this.unshowDescription = function (candle, $index) {
+    this.floatingDescription = ''
+  }
+
+
+
 
   this.createCandle = () => {
     $http(
@@ -70,6 +90,26 @@ app.controller('MyController', ['$http', function ($http) {
       console.log(error);
     })
   }
+
+  this.addLikes = function (candle) {
+    console.log(candle);
+    $http(
+      {
+        method:"PUT",
+        url: '/candles/likes/' + candle._id
+      }
+    ).then(
+      {
+        function (response) {
+          this.getCandles()
+        },
+        function (error) {
+          console.log(error);
+        }
+      }
+    )
+  }
+
 
   this.getCandles()
 

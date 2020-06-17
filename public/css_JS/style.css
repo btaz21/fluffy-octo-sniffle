@@ -32,6 +32,8 @@ ul {
 li {
   margin: 10px;
   color: #6d3918;
+  cursor: pointer;
+  font-size: 1.2em;
 }
 
 /* Index */
@@ -52,6 +54,18 @@ li {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.candles p {
+  transition: 3s
+
+}
+
+.description {
+  /* width: 250px; */
+  background-color: whitesmoke;
+  opacity: .5;
+  padding: 10px;
 }
 
 
@@ -89,4 +103,12 @@ button {
   font-size: 1.1em;
   padding: 5px;
   font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h6 {
+  margin: 0;
+  font-size: 1.5em;
+  text-align: right;
+  transform: translateY(-20px);
+  cursor: pointer;
 }
