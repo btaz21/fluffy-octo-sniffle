@@ -10,40 +10,58 @@
   <body ng-controller="MyController as ctrl">
     <div class="container">
       <h1>Welcome to J & B's Boutique Candle Shop</h1>
-      <div ng-repeat="candle in ctrl.candles" class="candles">
-        <h2>{{ candle.name }}</h2>
-        <img src="" alt="">
-        <button ng-click="ctrl.deleteCandle(candle._id)" type="button">Delete Candle</button>
-        <button
-        ng-if="ctrl.indexToShow !== $index"
-        ng-click="ctrl.indexToShow = $index"
-        type="button">Edit Candle</button>
-
-        <form
-        ng-if="$index === ctrl.indexToShow"
-        ng-submit="ctrl.updateCandle(candle)">
-          <input ng-model="ctrl.name" type="text" placeholder="Name">
-          <input ng-model="ctrl.price" type="number" placeholder="Price">
-          <input ng-model="ctrl.brand" type="text" placeholder="Brand">
-          <input ng-model="ctrl.likes" type="number" placeholder="How many likes?">
-          <label for="">In stock?</label>
-          <input ng-model="ctrl.inStock" type="checkbox">
-          <input ng-model="ctrl.img" type="url" placeholder="URL">
-          <input type="submit" value="Create New Candle">
-        </form>
+      <div class="navigation">
+        <ul>
+          <li>Populate Seed Data</li>
+          <li>Add Candle</li>
+          <li>See All Candles</li>
+        </ul>
       </div>
+      <div class="candle-index">
+        <div ng-repeat="candle in ctrl.candles" class="candles">
+          <h2>{{ candle.name }}</h2>
+          <img src="{{candle.img}}" alt="">
+          <h3>Price: ${{candle.price}}</h3>
+          <h3>Maker: {{candle.brand}}</h3>
+          <p>Description: {{candle.description}}</p>
+          <h3>Likes: {{candle.likes}}</h3>
+          <button ng-click="ctrl.deleteCandle(candle._id)" type="button">Delete Candle</button>
+          <button
+          ng-if="ctrl.indexToShow !== $index"
+          ng-click="ctrl.indexToShow = $index"
+          type="button">Edit Candle</button>
 
+          <form
+          ng-if="$index === ctrl.indexToShow"
+          ng-submit="ctrl.updateCandle(candle)">
+            <input ng-model="ctrl.name" type="text" placeholder="Name">
+            <input ng-model="ctrl.price" type="number" placeholder="Price">
+            <input ng-model="ctrl.brand" type="text" placeholder="Brand">
+            <input ng-model="ctrl.likes" type="number" placeholder="How many likes?">
+            <label for="">In stock?</label>
+            <input ng-model="ctrl.inStock" type="checkbox">
+            <input ng-model="ctrl.img" type="url" placeholder="URL">
+            <input type="submit" value="Create New Candle">
+          </form>
+        </div>
+      </div>
       <div class="create">
         <form ng-submit="ctrl.createCandle()">
           <fieldset>
             <legend>Fill Out Details</legend>
-            <input ng-model="ctrl.createForm.name" type="text" placeholder="Name">
-            <input ng-model="ctrl.createForm.price" type="number" placeholder="Price">
-            <input ng-model="ctrl.createForm.brand" type="text" placeholder="Brand">
-            <input ng-model="ctrl.createForm.likes" type="number" placeholder="How many likes?">
-            <label for="">In stock?</label>
-            <input ng-model="ctrl.createForm.inStock" type="checkbox">
-            <input ng-model="ctrl.createForm.img" type="url" placeholder="URL">
+            <label for="name">Name</label>
+            <input ng-model="ctrl.createForm.name" id="name" type="text" placeholder="Name">
+            <label for="description">Description</label>
+            <input ng-model="ctrl.createForm.description" id="description" type="text" placeholder="Description">
+            <label for="price">Price</label>
+            <input ng-model="ctrl.createForm.price" id="price" type="number" placeholder="Price">
+            <label for="brand">Brand</label>
+            <input ng-model="ctrl.createForm.brand" id="brand" type="text" placeholder="Brand">
+            <label for="likes">Likes</label>
+            <input ng-model="ctrl.createForm.likes" id="likes" type="number" placeholder="How many likes?">
+            <label for="stock">In stock?</label>
+            <input ng-model="ctrl.createForm.inStock" id="stock" type="checkbox">
+            <input ng-model="ctrl.createForm.img" id="img" type="url" placeholder="URL">
             <input type="submit" value="Create Candle">
           </fieldset>
         </form>

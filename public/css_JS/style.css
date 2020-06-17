@@ -1,9 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+
+* {
+  /* border: 1px solid gold; */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans Condensed', sans-serif;
+  background-color: #F0E9DE;
+}
+
+/* Header */
+
+h1 {
+  text-align: center;
+  margin: 0;
+  padding: 10px 0;
+  background-color: black;
+  color: whitesmoke;
+}
+
+ul {
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+li {
+  margin: 10px
+}
+
+/* Index */
+
+.candles {
+  width: 300px;
+  text-align: center;
+}
+
+.candles img {
+  width: 100%;
+  max-height: 250px;
+  border-radius: 5px;
+}
+
+.candle-index {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+
+/* Forms */
+
 input {
   display: block;
-
+  margin: 0 auto;
 }
 
 fieldset {
   background-image: url(https://i.imgur.com/WUQXIrX.jpg);
   background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.create {
+  margin: 25px auto;
+  width: 400px;
 }
