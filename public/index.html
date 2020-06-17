@@ -32,7 +32,7 @@
             <input ng-model="ctrl.createForm.inStock" id="stock" type="checkbox">
             <label for="img">Image Link</label>
             <input ng-model="ctrl.createForm.img" id="img" type="url" placeholder="image link">
-            <input type="submit" value="Create Candle">
+            <input type="submit" value="Create Candle" ng-click="ctrl.toggleCreateForm()">
           </fieldset>
         </form>
       </div>

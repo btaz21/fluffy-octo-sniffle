@@ -6,7 +6,7 @@ app.controller('MyController', ['$http', function ($http) {
   this.createForm = {}
   this.showCreate = false
   this.floatingDescription = ''
-  this.toggleClass = true
+  const controller = this
 
   this.toggleCreateForm = function () {
     this.showCreate = !this.showCreate
@@ -31,14 +31,17 @@ app.controller('MyController', ['$http', function ($http) {
         url:'/candles',
         data: this.createForm
       }
-    ).then((response) => {
-      console.log(response.data);
-      this.createForm = {}
-      this.getCandles()
-    }, (error) => {
-      console.log(error);
-    })
-  }//createCandle end
+    ).then(
+      function (response) {
+        console.log(response.data);
+        controller.createForm = {}
+        this.getCandles()
+      },
+      function (error) {
+        console.log(error);
+      }
+    )
+  }
 
 
   this.getCandles = () => {
@@ -47,12 +50,16 @@ app.controller('MyController', ['$http', function ($http) {
         method:'GET',
         url: '/candles'
       }
-    ).then((response) => {
-      this.candles = response.data
-    }, (error) => {
-      console.log(error);
-    })
-  }//getCandles end
+    ).then(
+      function (response) {
+        controller.candles = response.data
+      },
+      function (error) {
+        console.log(error);
+      }
+    )
+  }
+
 
 
   this.deleteCandle = (id) => {
@@ -61,12 +68,16 @@ app.controller('MyController', ['$http', function ($http) {
         method: 'DELETE',
         url: '/candles/' + id
       }
-    ).then((response) => {
-      this.getCandles()
-    }, (error) => {
-      console.log(error);
-    })
-  }//deleteCandle end
+    ).then(
+      function (response) {
+        controller.getCandles()
+      },
+      function (error) {
+        console.log(error);
+      }
+    )
+  }
+
 
   this.updateCandle = (candle) => {
     $http(
@@ -83,12 +94,14 @@ app.controller('MyController', ['$http', function ($http) {
           img: this.url
         }
       }
-    ).then((response) => {
-      console.log(response.data);
-      this.getCandles()
-    }, (error) => {
-      console.log(error);
-    })
+    ).then(
+      function (response) {
+        controller.getCandles()
+      },
+      function (error) {
+        console.log(error);
+      }
+    )
   }
 
   this.addLikes = function (candle) {
@@ -99,14 +112,12 @@ app.controller('MyController', ['$http', function ($http) {
         url: '/candles/likes/' + candle._id
       }
     ).then(
-      {
         function (response) {
-          this.getCandles()
+          controller.getCandles()
         },
         function (error) {
           console.log(error);
         }
-      }
     )
   }
 
