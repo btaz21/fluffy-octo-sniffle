@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <script src="/css_JS/app.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <link rel="stylesheet" href="/css_JS/style.css">
     <title></title>
   </head>
@@ -44,7 +45,7 @@
           <h3>Price: ${{candle.price}}</h3>
           <h3>Maker: {{candle.brand}}</h3>
           <h3>Likes: {{candle.likes}}</h3>
-          <h2 ng-click="ctrl.addLikes(candle)">+</h2>
+          <h3><ion-icon ng-click="ctrl.addLikes(candle)" name="thumbs-up"></ion-icon></h3>  
           <button ng-click="ctrl.deleteCandle(candle._id)" type="button">Delete Candle</button>
           <button
           ng-if="ctrl.indexToShow !== $index"
