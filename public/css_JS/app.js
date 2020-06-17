@@ -55,6 +55,7 @@ app.controller('MyController', ['$http', function ($http) {
         url: '/candles/' + candle._id,
         data: {
           name: this.name,
+          description: this.description,
           price: this.price,
           brand: this.brand,
           likes: this.likes,

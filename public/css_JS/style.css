@@ -30,7 +30,8 @@ ul {
 }
 
 li {
-  margin: 10px
+  margin: 10px;
+  color: #6d3918;
 }
 
 /* Index */
@@ -60,6 +61,14 @@ input {
   margin: 0 auto;
 }
 
+input[type=submit] {
+  margin: 20px auto;
+}
+
+label {
+  margin-top: 30px;
+}
+
 fieldset {
   background-image: url(https://i.imgur.com/WUQXIrX.jpg);
   background-size: cover;
@@ -70,4 +79,13 @@ fieldset {
 .create {
   margin: 25px auto;
   width: 400px;
+}
+
+button {
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 1.1em;
+  padding: 5px;
+  font-family: 'Open Sans Condensed', sans-serif;
 }

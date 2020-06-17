@@ -35,13 +35,14 @@
           ng-if="$index === ctrl.indexToShow"
           ng-submit="ctrl.updateCandle(candle)">
             <input ng-model="ctrl.name" type="text" placeholder="Name">
+            <input ng-model="ctrl.description" type="text" placeholder="Description">
             <input ng-model="ctrl.price" type="number" placeholder="Price">
             <input ng-model="ctrl.brand" type="text" placeholder="Brand">
             <input ng-model="ctrl.likes" type="number" placeholder="How many likes?">
             <label for="">In stock?</label>
             <input ng-model="ctrl.inStock" type="checkbox">
             <input ng-model="ctrl.img" type="url" placeholder="URL">
-            <input type="submit" value="Create New Candle">
+            <input type="submit" value="Update Candle">
           </form>
         </div>
       </div>
@@ -50,18 +51,17 @@
           <fieldset>
             <legend>Fill Out Details</legend>
             <label for="name">Name</label>
-            <input ng-model="ctrl.createForm.name" id="name" type="text" placeholder="Name">
+            <input ng-model="ctrl.createForm.name" id="name" type="text" placeholder="name">
             <label for="description">Description</label>
-            <input ng-model="ctrl.createForm.description" id="description" type="text" placeholder="Description">
+            <input ng-model="ctrl.createForm.description" id="description" type="text" placeholder="description">
             <label for="price">Price</label>
-            <input ng-model="ctrl.createForm.price" id="price" type="number" placeholder="Price">
+            <input ng-model="ctrl.createForm.price" id="price" type="number" placeholder="price">
             <label for="brand">Brand</label>
-            <input ng-model="ctrl.createForm.brand" id="brand" type="text" placeholder="Brand">
-            <label for="likes">Likes</label>
-            <input ng-model="ctrl.createForm.likes" id="likes" type="number" placeholder="How many likes?">
+            <input ng-model="ctrl.createForm.brand" id="brand" type="text" placeholder="brand">
             <label for="stock">In stock?</label>
             <input ng-model="ctrl.createForm.inStock" id="stock" type="checkbox">
-            <input ng-model="ctrl.createForm.img" id="img" type="url" placeholder="URL">
+            <label for="img">Image Link</label>
+            <input ng-model="ctrl.createForm.img" id="img" type="url" placeholder="image link">
             <input type="submit" value="Create Candle">
           </fieldset>
         </form>
