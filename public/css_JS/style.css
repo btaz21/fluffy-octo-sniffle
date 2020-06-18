@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
 * {
-  border: 1px solid gold;
+  /* border: 1px solid gold; */
 }
 
 body {
@@ -88,6 +88,10 @@ input {
   width: 50%;
   font-size: 1.3em;
   font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.edit-form input {
+  width: 80%;
 }
 
 
