@@ -96,7 +96,7 @@ app.controller('MyController', ['$http', function ($http) {
           brand: this.brand,
           likes: this.likes,
           inStock: this.inStock,
-          img: this.url
+          img: this.img
         }
       }
     ).then(
