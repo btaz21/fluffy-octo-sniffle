@@ -39,24 +39,25 @@
       </div>
       <div class="candle-index">
         <div ng-repeat="candle in ctrl.candles" class="candles">
-          <h2>{{ candle.name }}</h2>
-          <img ng-mouseenter="ctrl.showDescription(candle, $index)" ng-mouseleave="ctrl.unshowDescription(candle, $index)" src="{{candle.img}}" alt="">
-          <p ng-if="ctrl.indexToShowDescription === $index" class="description">{{ctrl.floatingDescription}}</p>
-          <h3>Price: ${{candle.price}}</h3>
-          <h3>Maker: {{candle.brand}}</h3>
-          <h3>Likes: {{candle.likes}}</h3>
-          <h3><ion-icon ng-click="ctrl.addLikes(candle)" name="thumbs-up"></ion-icon></h3>
+          <div ng-hide="ctrl.indexToShow === $index" class="hidden-div">
+            <h2>{{ candle.name }}</h2>
+            <img ng-class="(candle.inStock) ? '' : 'out-of-stock' " ng-mouseenter="ctrl.showDescription(candle, $index)" ng-mouseleave="ctrl.unshowDescription(candle, $index)" src="{{candle.img}}" alt="">
+            <p ng-if="ctrl.indexToShowDescription === $index" class="description">{{ctrl.floatingDescription}}</p>
+            <h3>Price: ${{candle.price}}</h3>
+            <h3>Maker: {{candle.brand}}</h3>
+            <h3>Likes: {{candle.likes}}</h3>
+            <h3><ion-icon ng-click="ctrl.addLikes(candle)" name="thumbs-up"></ion-icon></h3>
+          </div>
+
           <button ng-click="ctrl.deleteCandle(candle._id)" type="button">Delete Candle</button>
           <button
           ng-if="ctrl.indexToShow !== $index"
           ng-click="ctrl.indexToShow = $index"
           type="button">Edit Candle</button>
-          <form
-          ng-if="$index === ctrl.indexToShow"
-          ng-submit="ctrl.updateCandle(candle)">
+          <form class="edit-form" ng-if="$index === ctrl.indexToShow" ng-submit="ctrl.updateCandle(candle)">
             <fieldset>
               <legend>Edit Form</legend>
-              <h6 ng-click="ctrl.toggleEditForm()">x</h6>
+              <h6 ng-click="ctrl.indexToShow = null">x</h6>
               <label for="name">Name</label>
               <input ng-model="ctrl.name" type="text" ng-value="candle.name">
               <label for="description">Description</label>
@@ -68,7 +69,7 @@
               <label for="likes">Likes?</label>
               <input ng-model="ctrl.likes" type="number" ng-value="candle.likes">
               <label for="stock">In stock?</label>
-              <input ng-model="ctrl.inStock" type="checkbox">
+              <input ng-model="ctrl.inStock" type="checkbox" ng-checked="candle.inStock">
               <label for="img">Image Link</label>
               <input ng-model="ctrl.img" type="url" ng-value="candle.img">
               <input type="submit" value="Update Candle">

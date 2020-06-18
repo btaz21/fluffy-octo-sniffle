@@ -6,7 +6,7 @@ const candleSchema = mongoose.Schema({
   price: {type: Number, required: true},
   brand: {type:String, required: true},
   likes: {type:Number, default: 0},
-  inStock: {type:Boolean, default: true},
+  inStock: Boolean,
   img: {type:String, required: true}
 })
 

@@ -35,5 +35,7 @@ Bobby took day 2 by the reigns and polished the app through CSS. We both worked 
 
 
 ## Unsolved problems:
--[x] getting candles to sort from most liked to least  
--[] finding a way to collapse forms more easily/intuitively
+~~getting candles to sort from most liked to least~~  
+~~finding a way to collapse forms more easily/intuitively~~  
+~~candle to black/white when out of stock~~  
+~~getting ng-value to work for checkboxes~~  

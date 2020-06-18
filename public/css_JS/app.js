@@ -96,12 +96,13 @@ app.controller('MyController', ['$http', function ($http) {
           brand: this.brand,
           likes: this.likes,
           inStock: this.inStock,
-          img: this.url
+          img: this.img
         }
       }
     ).then(
       function (response) {
         controller.getCandles()
+        controller.indexToShow = null
       },
       function (error) {
         console.log(error);
