@@ -4,12 +4,17 @@ app.controller('MyController', ['$http', function ($http) {
   this.indexToShow = null
   this.indexToShowDescription = null
   this.createForm = {}
-  this.showCreate = false
+  this.showBoolean = false
+  this.editBoolean = false
   this.floatingDescription = ''
   const controller = this
 
   this.toggleCreateForm = function () {
-    this.showCreate = !this.showCreate
+    this.showBoolean = !this.showBoolean
+  }
+
+  this.toggleEditForm = function () {
+    this.editBoolean = !this.editBoolean
   }
 
   this.showDescription = function (candle, $index) {
@@ -35,7 +40,7 @@ app.controller('MyController', ['$http', function ($http) {
       function (response) {
         console.log(response.data);
         controller.createForm = {}
-        this.getCandles()
+        controller.getCandles()
       },
       function (error) {
         console.log(error);
@@ -123,6 +128,9 @@ app.controller('MyController', ['$http', function ($http) {
 
 
   this.getCandles()
+
+
+
 
 
 }])

@@ -17,7 +17,7 @@
         </ul>
       </div>
       <div class="create">
-        <form ng-submit="ctrl.createCandle()" ng-if="ctrl.showCreate === true">
+        <form ng-submit="ctrl.createCandle()" ng-if="ctrl.showBoolean === true">
           <fieldset>
             <legend>Fill Out Details</legend>
             <h6 ng-click="ctrl.toggleCreateForm()">x</h6>
@@ -33,7 +33,7 @@
             <input ng-model="ctrl.createForm.inStock" id="stock" type="checkbox">
             <label for="img">Image Link</label>
             <input ng-model="ctrl.createForm.img" id="img" type="url" placeholder="image link">
-            <input type="submit" value="Create Candle" ng-click="ctrl.toggleCreateForm()">
+            <input type="submit" value="Create Candle">
           </fieldset>
         </form>
       </div>
@@ -45,7 +45,7 @@
           <h3>Price: ${{candle.price}}</h3>
           <h3>Maker: {{candle.brand}}</h3>
           <h3>Likes: {{candle.likes}}</h3>
-          <h3><ion-icon ng-click="ctrl.addLikes(candle)" name="thumbs-up"></ion-icon></h3>  
+          <h3><ion-icon ng-click="ctrl.addLikes(candle)" name="thumbs-up"></ion-icon></h3>
           <button ng-click="ctrl.deleteCandle(candle._id)" type="button">Delete Candle</button>
           <button
           ng-if="ctrl.indexToShow !== $index"
@@ -56,6 +56,7 @@
           ng-submit="ctrl.updateCandle(candle)">
             <fieldset>
               <legend>Edit Form</legend>
+              <h6 ng-click="ctrl.toggleEditForm()">x</h6>
               <label for="name">Name</label>
               <input ng-model="ctrl.name" type="text" ng-value="candle.name">
               <label for="description">Description</label>
