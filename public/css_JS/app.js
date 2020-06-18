@@ -102,6 +102,7 @@ app.controller('MyController', ['$http', function ($http) {
     ).then(
       function (response) {
         controller.getCandles()
+        controller.indexToShow = null
       },
       function (error) {
         console.log(error);
