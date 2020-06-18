@@ -5,10 +5,12 @@ const Candles = require('../models/candles.js')
 
 //INDEX
 router.get('/', (req, res) => {
-  Candles.find({}, null, {sort: {likes: -1}}, (error, foundCandle) => {
+  Candles.find({}, (error, foundCandle) => {
     res.json(foundCandle)
-  })
+  }).sort({likes: 'desc'})
 })
+
+// null, {sort: {likes: -1}},
 
 
 //CREATE
