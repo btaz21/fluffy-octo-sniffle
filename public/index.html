@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="CandleApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="/css_JS/app.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="/css_JS/style.css">
+    <title></title>
+  </head>
+  <body ng-controller="MyController as ctrl">
+    <div class="container">
+      <h1>J & B's Luxury Candle Collection</h1>
+      <div class="navigation">
+        <ul>
+          <li ng-click="ctrl.toggleCreateForm()">Add Candle</li>
+        </ul>
+      </div>
+      <div class="create">
+        <form ng-submit="ctrl.createCandle()" ng-if="ctrl.showBoolean === true">
+          <fieldset>
+            <legend>Fill Out Details</legend>
+            <h6 ng-click="ctrl.toggleCreateForm()">x</h6>
+            <label for="name">Name</label>
+            <input ng-model="ctrl.createForm.name" id="name" type="text" placeholder="name">
+            <label for="description">Description</label>
+            <input ng-model="ctrl.createForm.description" id="description" type="text" placeholder="description">
+            <label for="price">Price</label>
+            <input ng-model="ctrl.createForm.price" id="price" type="number" placeholder="price">
+            <label for="brand">Brand</label>
+            <input ng-model="ctrl.createForm.brand" id="brand" type="text" placeholder="brand">
+            <label for="stock">In stock?</label>
+            <input ng-model="ctrl.createForm.inStock" id="stock" type="checkbox">
+            <label for="img">Image Link</label>
+            <input ng-model="ctrl.createForm.img" id="img" type="url" placeholder="image link">
+            <input type="submit" value="Create Candle">
+          </fieldset>
+        </form>
+      </div>
+      <div class="candle-index">
+        <div ng-repeat="candle in ctrl.candles" class="candles">
+          <h2>{{ candle.name }}</h2>
+          <img ng-mouseenter="ctrl.showDescription(candle, $index)" ng-mouseleave="ctrl.unshowDescription(candle, $index)" src="{{candle.img}}" alt="">
+          <p ng-if="ctrl.indexToShowDescription === $index" class="description">{{ctrl.floatingDescription}}</p>
+          <h3>Price: ${{candle.price}}</h3>
+          <h3>Maker: {{candle.brand}}</h3>
+          <h3>Likes: {{candle.likes}}</h3>
+          <h3><ion-icon ng-click="ctrl.addLikes(candle)" name="thumbs-up"></ion-icon></h3>
+          <button ng-click="ctrl.deleteCandle(candle._id)" type="button">Delete Candle</button>
+          <button
+          ng-if="ctrl.indexToShow !== $index"
+          ng-click="ctrl.indexToShow = $index"
+          type="button">Edit Candle</button>
+          <form
+          ng-if="$index === ctrl.indexToShow"
+          ng-submit="ctrl.updateCandle(candle)">
+            <fieldset>
+              <legend>Edit Form</legend>
+              <h6 ng-click="ctrl.toggleEditForm()">x</h6>
+              <label for="name">Name</label>
+              <input ng-model="ctrl.name" type="text" ng-value="candle.name">
+              <label for="description">Description</label>
+              <input ng-model="ctrl.description" type="text" ng-value="candle.description">
+              <label for="price">Price</label>
+              <input ng-model="ctrl.price" type="number" ng-value="candle.price">
+              <label for="brand">Brand</label>
+              <input ng-model="ctrl.brand" type="text" ng-value="candle.brand">
+              <label for="likes">Likes?</label>
+              <input ng-model="ctrl.likes" type="number" ng-value="candle.likes">
+              <label for="stock">In stock?</label>
+              <input ng-model="ctrl.inStock" type="checkbox">
+              <label for="img">Image Link</label>
+              <input ng-model="ctrl.img" type="url" ng-value="candle.img">
+              <input type="submit" value="Update Candle">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
