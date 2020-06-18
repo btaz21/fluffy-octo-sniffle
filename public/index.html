@@ -66,9 +66,9 @@
               <label for="likes">Likes?</label>
               <input ng-model="ctrl.likes" type="number" ng-value="candle.likes">
               <label for="stock">In stock?</label>
-              <input ng-model="ctrl.inStock" type="checkbox">
+              <input ng-model="ctrl.inStock" type="checkbox" ng-checked="candle.inStock">
               <label for="img">Image Link</label>
-              <input ng-model="ctrl.img" type="url" ng-value="candle.img">
+              <input ng-model="ctrl.img" type="url">
               <input type="submit" value="Update Candle">
             </fieldset>
           </form>
