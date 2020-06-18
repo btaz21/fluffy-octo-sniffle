@@ -6,7 +6,16 @@ Host: Bobby Tazioli
 Collaborator: Jessica Teekasingh
 
 ## Technologies Used:
-JavaScript, CSS, HTML, AngularJS, NodeJS, Express
+*JavaScript  
+*CSS  
+*HTML  
+*AngularJS   
+*NodeJS  
+*Express  
+MongoDB  
+*Mongoose  
+*Git  
+*Github  
 
 ## Approach:
 Day 1 -
@@ -17,14 +26,11 @@ Bobby took day 2 by the reigns and polished the app through CSS. We both worked 
 
 
 ## Installation instructions:
-*Clone repo onto local desktop.
-*npm install
-*open second terminal tab and run ```mongod --dbpath ~/data/db```
-Touch server.js.
-Run npm init.
-Select 'server.js' as main.
-User must download (npm i), Express, mongod, mongoose, nodemon.
-Run nodemon.
-Check to ensure localhost is connected.
+*Clone repo onto local desktop  
+*npm install  
+*open second terminal tab and run ```mongod --dbpath ~/data/db```  
+*open third terminal tab and run ```mongod```
 
 ## Unsolved problems:
+-[x] getting candles to sort from most liked to least
+-[] finding a way to collapse forms more easily/intuitively
