@@ -10,8 +10,6 @@ router.get('/', (req, res) => {
   }).sort({likes: 'desc'})
 })
 
-// null, {sort: {likes: -1}},
-
 
 //CREATE
 router.post('/', (req, res) => {
